@@ -1,4 +1,4 @@
-[![Build status](https://psdstewards.visualstudio.com/PSD/_apis/build/status/CaseStudy-Battleship-dotnetcore-CI)](https://psdstewards.visualstudio.com/PSD/_build/latest?definitionId=11)
+[![Build status](https://psdstewards.visualstudio.com/PSD/_apis/build/status/proscrumdev.battleship-dotnetcore-CI)](https://psdstewards.visualstudio.com/PSD/_build/latest?definitionId=13)
 
 # Build the application 
 In the root folder of the application there is a Battleship.sln which can be used to build all projects by executing
@@ -24,7 +24,7 @@ You can easily run the game within a docker container.
 Change into the Battleship folder
 
 ```bash
-docker run -it -v ${PWD}:/battleship microsoft/dotnet bash
+docker run -it -v ${PWD}:/battleship mcr.microsoft.com/dotnet/core/sdk:3.1 bash
 ```
 
 This starts a new container and maps your current folder on your host machine as the folder battleship in your container and opens a bash console. In bash then change to the folder battleship/Battleship.Ascii and run
@@ -33,9 +33,14 @@ dotnet run
 ```
 
 # Execute Tests
-There is a ExecuteTests.ps1 file which can be used to execute the tests. You can also run the tests by executing the tests within the test project with
+You can run tests on the console by using
 ```bash
 dotnet test 
+```
+
+If you want to run tests within VSCode, you can install the [].NET Core Test Explorer Extension](https://marketplace.visualstudio.com/items?itemName=formulahendry.dotnet-test-explorer). In this case make sure, you set the Propery "Test Project Path" in the extension setting to this value:
+```bash
+**/*[Test|ATDD]*/*.csproj
 ```
 
 

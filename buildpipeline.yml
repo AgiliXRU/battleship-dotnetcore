@@ -7,7 +7,8 @@ trigger:
 - master
 
 pool:
-  name: Hosted Ubuntu 1604
+  name: Azure Pipelines
+  vmimage: windows-latest
 
 variables:
   buildConfiguration: 'Release'
@@ -29,7 +30,9 @@ steps:
   displayName: Test
   inputs:
     command: test
-    projects: '**/*[Tt]ests/*.csproj'
+    projects: |
+      '**/*[Tt]ests/*.csproj'
+      '**/*ATDD/*.csproj'            
     arguments: '--configuration $(BuildConfiguration)'
 
 - task: PublishBuildArtifacts@1
