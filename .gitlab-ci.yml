@@ -27,5 +27,5 @@ sonar:
   script:
   - dotnet sonarscanner begin /k:"$SONAR_PROJECT_KEY" /d:sonar.host.url=$SONAR_URL /d:sonar.login=$SONAR_PROJECT_TOKEN
   - dotnet build
-  - dotnet sonarscanner end
+  - dotnet sonarscanner end /d:sonar.login=$SONAR_PROJECT_TOKEN
 
