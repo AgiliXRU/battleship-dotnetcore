@@ -25,7 +25,7 @@ sonar:
   - export PATH="$PATH:/root/.dotnet/tools"
   - apt-get update && apt-get install -y default-jdk
   script:
-  - dotnet sonarscanner begin /k:"$SONAR_PROJECT_KEY" /d:sonar.host.url=$SONAR_URL /d:sonar.login=$SONAR_TOKEN
+  - dotnet sonarscanner begin /k:"$SONAR_PROJECT_KEY" /d:sonar.host.url=$SONAR_URL /d:sonar.login=$SONAR_PROJECT_TOKEN
   - dotnet build
   - dotnet sonarscanner end
 
